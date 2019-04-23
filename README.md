@@ -11,6 +11,6 @@ ouvrez l'url suivant dans votre navigateur : http://localhost:4567/ pour aller s
 
 Ouvrez celui-là pour ajouter de nouveaux gossips : http://localhost:4567/gossips/new/
 
-
+Je suis allé jusqu'à l'edit, je n'ai pas fait les commentaires.
 
 Fait par Anis Bouhouche.
