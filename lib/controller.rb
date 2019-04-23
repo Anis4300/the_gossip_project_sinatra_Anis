@@ -18,17 +18,12 @@ class ApplicationController < Sinatra::Base
     erb :show, locals: {id: params["id"], gossip: Gossip.find(params["id"])}
 	end	
 
-	get '/gossips/:id/edit/' do #.
+	get '/gossips/:id/edit/' do #Afficher la page et permet de taper.
     erb :edit, locals: {id: params["id"], gossip: Gossip.find(params["id"])}
 	end	
 
-	post '/gossips/:id/edit/' do
+	post '/gossips/:id/edit/' do #permet d'enregistrer.
   	Gossip.update(params['id'],params['gossip_author'], params['gossip_content'])
   	redirect '/'
-	end			
-
-  post '/gossips/:id/edit/' do
-    Gossip.update(params['id'],params["gossip_author"],params["gossip_content"])
-		redirect '/'
   end
 end
