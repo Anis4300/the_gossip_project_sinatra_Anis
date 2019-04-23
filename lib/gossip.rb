@@ -26,4 +26,15 @@ class Gossip
     Gossip.new(row[0], row[1])
   end
 
+  def self.update (id, author, content)
+    gossips = Gossip.all
+    gossips[id.to_i] = Gossip.new(author,content)
+    	CSV.open("./db/gossip.csv",'w') do |csv| #w = write only et change le file db actuel (dans le docu sinatra)
+      csv =""
+    	end
+    gossips.each do |gossip|
+      gossip.save
+    end
+  end
+
 end	
