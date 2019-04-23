@@ -5,12 +5,16 @@ class ApplicationController < Sinatra::Base
  		erb :index, locals: {gossips: Gossip.all}
  	end
  	
- 	get '/gossips/new/'	do
+ 	get '/gossips/new/'	do #Permet à l'utilisateur de taper un gossip.
  		erb :new_gossip
  	end
  	
- 	post '/gossips/new/' do
+ 	post '/gossips/new/' do #Permet d'enregistrer le gossip tapé dans la db.
   	Gossip.new(params['gossip_author'], params['gossip_content']).save
   	redirect '/'
+	end	
+
+	get '/gossips/:id' do #Pour numéroter les gossips, en partant de 0.
+    erb :show, locals: {id: params["id"], gossip: Gossip.find(params["id"])}
 	end	
 end
